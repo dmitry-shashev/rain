@@ -1,0 +1,16 @@
+{
+  "plugins": ["stylelint-prettier"],
+  "ignoreFiles": ["**/*"],
+  "overrides": [
+    {
+      "files": ["**/*.css", "**/*.scss"],
+      "extends": ["stylelint-config-standard"],
+      "customSyntax": "postcss-scss",
+      "rules": {
+        "selector-class-pattern": null,
+        "prettier/prettier": true
+      }
+    }
+  ],
+  "rules": {}
+}

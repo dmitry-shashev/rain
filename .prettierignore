@@ -1,0 +1,8 @@
+/dist
+/tmp
+/coverage
+/templates
+_generated
+pnpm-lock.yaml
+.pnpm-store
+doc

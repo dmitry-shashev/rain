@@ -1,0 +1,125 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nrwl/nx"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "apps:back",
+                "onlyDependOnLibsWithTags": [
+                  "libs:core",
+                  "libs:data-access-db",
+                  "libs:dto"
+                ]
+              },
+              {
+                "sourceTag": "apps:dashboard",
+                "onlyDependOnLibsWithTags": [
+                  "libs:store",
+                  "libs:core",
+                  "libs:components"
+                ]
+              },
+              {
+                "sourceTag": "libs:store",
+                "onlyDependOnLibsWithTags": ["libs:core", "libs:dto"]
+              },
+              {
+                "sourceTag": "libs:components",
+                "onlyDependOnLibsWithTags": ["libs:core"]
+              },
+              {
+                "sourceTag": "libs:data-access-db",
+                "onlyDependOnLibsWithTags": []
+              },
+              {
+                "sourceTag": "libs:core",
+                "onlyDependOnLibsWithTags": []
+              },
+              {
+                "sourceTag": "libs:dto",
+                "onlyDependOnLibsWithTags": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.base.json"
+      },
+      "rules": {
+        "@typescript-eslint/switch-exhaustiveness-check": "error",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true
+          }
+        ],
+        "@typescript-eslint/array-type": [
+          2,
+          {
+            "default": "generic"
+          }
+        ],
+        "quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "object-property-newline": [
+          "error",
+          {
+            "allowAllPropertiesOnSameLine": false
+          }
+        ],
+        "curly": ["error", "all"],
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ],
+        "object-curly-newline": [
+          "error",
+          {
+            "ObjectExpression": { "consistent": true, "multiline": true },
+            "ObjectPattern": { "consistent": true, "multiline": true },
+            "ImportDeclaration": { "consistent": true, "multiline": true },
+            "ExportDeclaration": { "multiline": true }
+          }
+        ],
+        "no-console": "error",
+        "no-alert": "error",
+        "no-debugger": "error",
+        "no-eval": "error",
+        "no-extend-native": "error",
+        "no-inline-comments": "error",
+        "no-bitwise": "error",
+        "no-proto": "error",
+        "no-param-reassign": "error"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
+    }
+  ]
+}

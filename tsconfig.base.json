@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "useUnknownInCatchVariables": false,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "paths": {
+      "@rain/components": ["libs/components/src/index.ts"],
+      "@rain/core": ["libs/core/src/index.ts"],
+      "@rain/data-access-db": ["libs/data-access-db/src/index.ts"],
+      "@rain/dto": ["libs/dto/src/index.ts"],
+      "@rain/store": ["libs/store/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
