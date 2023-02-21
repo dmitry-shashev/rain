@@ -1,0 +1,18 @@
+.wrap {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  margin: 6px;
+  padding: 12px;
+  border-radius: 6px;
+  max-width: 440px;
+}

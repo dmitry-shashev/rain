@@ -3,14 +3,20 @@ import { FC } from 'react'
 import HomePage from '../pages/HomePage'
 import AboutPage from '../pages/AboutPage'
 import NotFoundPage from '../pages/NotFoundPage'
-import MainLayout from '../layouts/MainLayout'
 import PostPage from '../pages/PostPage'
 import SearchPage from '../pages/SearchPage'
 import { PagePath } from '../constants/page-path'
+import LoginLayout from '../layouts/LoginLayout/LoginLayout'
+import MainLayout from '../layouts/MainLayout/MainLayout'
+import LoginPage from '../pages/LoginPage'
 
 const App: FC = () => {
   return (
     <Routes>
+      <Route path="auth" element={<LoginLayout />}>
+        <Route path={PagePath.LOGIN} element={<LoginPage />} />
+      </Route>
+
       <Route path={PagePath.HOME} element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path={PagePath.SEARCH} element={<SearchPage />} />

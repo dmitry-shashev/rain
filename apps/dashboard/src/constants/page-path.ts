@@ -3,4 +3,5 @@ export enum PagePath {
   SEARCH = 'search',
   ABOUT = 'about',
   POST = 'post/:id',
+  LOGIN = 'login',
 }

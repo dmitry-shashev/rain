@@ -1,5 +1,6 @@
 #### Frontend
 
+* Login Form
 * Hook forms
 * Storybook
 * Toasts
@@ -9,7 +10,6 @@
 
 #### Backend
     
-* Validation
 * Errors handling
 * API Tests
 
