@@ -122,3 +122,9 @@ pnpm add normalize.css
 pnpm add env-cmd
 ```
 
+#### Add moment
+
+```bash
+pnpm add moment
+```
+
