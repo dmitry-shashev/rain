@@ -34,5 +34,5 @@ jobs:
         with:
           node-version: 18.12.1
           cache: 'pnpm'
-      - run: pnpm install
+      - run: pnpm install --ignore-scripts --frozen-lockfile
       - run: pnpm build
