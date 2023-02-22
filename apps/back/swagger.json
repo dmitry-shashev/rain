@@ -17,9 +17,7 @@
             }
           }
         },
-        "tags": [
-          "users"
-        ]
+        "tags": ["users"]
       },
       "post": {
         "operationId": "UsersController_create",
@@ -46,9 +44,7 @@
             }
           }
         },
-        "tags": [
-          "users"
-        ]
+        "tags": ["users"]
       }
     },
     "/api/users/{id}": {
@@ -76,9 +72,7 @@
             }
           }
         },
-        "tags": [
-          "users"
-        ]
+        "tags": ["users"]
       },
       "patch": {
         "operationId": "UsersController_update",
@@ -114,9 +108,7 @@
             }
           }
         },
-        "tags": [
-          "users"
-        ]
+        "tags": ["users"]
       }
     }
   },
@@ -151,11 +143,7 @@
             "example": "tt@tt.tt"
           }
         },
-        "required": [
-          "id",
-          "name",
-          "email"
-        ]
+        "required": ["id", "name", "email"]
       },
       "UsersListDto": {
         "type": "object",
@@ -167,9 +155,7 @@
             }
           }
         },
-        "required": [
-          "users"
-        ]
+        "required": ["users"]
       },
       "CreateUserDto": {
         "type": "object",
@@ -183,10 +169,7 @@
             "example": "tt2@tt.tt"
           }
         },
-        "required": [
-          "name",
-          "email"
-        ]
+        "required": ["name", "email"]
       },
       "UpdateUserDto": {
         "type": "object",
@@ -196,9 +179,7 @@
             "example": "Mike"
           }
         },
-        "required": [
-          "name"
-        ]
+        "required": ["name"]
       }
     }
   }
