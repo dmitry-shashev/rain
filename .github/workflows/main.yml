@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 18.12.1
           cache: 'pnpm'
-      - run: git fetch origin master
+      - run: git fetch --no-tags --prune --depth=5 origin master
       - run: pnpm install
       - run: pnpm tsc
       - run: pnpm lint
