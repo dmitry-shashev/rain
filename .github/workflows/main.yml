@@ -35,4 +35,5 @@ jobs:
           node-version: 18.12.1
           cache: 'pnpm'
       - run: pnpm install --ignore-scripts --frozen-lockfile
+      - run: pnpm prisma-generate
       - run: pnpm build
