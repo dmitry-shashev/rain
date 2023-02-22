@@ -7,15 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: git fetch --no-tags --prune --depth=5 origin master
       - uses: pnpm/action-setup@v2
         with:
           version: 7.27.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18.12.1
-          fetch-depth: 0
           cache: 'pnpm'
-      - run: git fetch --no-tags --prune --depth=5 origin master
       - run: pnpm install
       - run: pnpm tsc
       - run: pnpm lint
