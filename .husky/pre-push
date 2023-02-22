@@ -4,4 +4,4 @@
 pnpm lint
 pnpm test
 pnpm lint-styles
-pnpm prisma validate
+pnpm prisma-validate

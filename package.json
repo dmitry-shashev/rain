@@ -1,6 +1,6 @@
 {
   "name": "rain",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
@@ -19,7 +19,8 @@
     "prisma-pull": "env-cmd -f .local.env prisma db pull",
     "prisma-push": "env-cmd -f .local.env prisma db push",
     "prisma-seed": "env-cmd -f .local.env prisma db seed",
-    "prisma-studio": "env-cmd -f .local.env prisma studio"
+    "prisma-studio": "env-cmd -f .local.env prisma studio",
+    "prisma-validate": "env-cmd -f .local.env prisma validate"
   },
   "private": true,
   "devDependencies": {

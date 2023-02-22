@@ -21,7 +21,6 @@ jobs:
       - run: pnpm tsc
       - run: pnpm lint
       - run: pnpm lint-styles
-      - run: pnpm prisma validate
       - run: pnpm test
 
   build:
