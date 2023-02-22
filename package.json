@@ -1,6 +1,6 @@
 {
   "name": "rain",
-  "version": "0.0.16",
+  "version": "0.0.19",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
@@ -9,17 +9,18 @@
     "build": "nx run-many --target=build",
     "prod": "pnpm build && nx run-many --target=serve --prod",
     "e2e": "nx e2e ui-e2e",
-    "lint": "nx affected --target=lint --base=master --parallel=5",
-    "lint-styles": "nx affected --target=stylelint --base=master --parallel=5",
-    "test": "nx affected --target=test --base=master --parallel=5",
-    "tsc": "nx affected --target=tsc --base=master --parallel=5",
+    "lint": "nx affected --target=lint --base=origin/master --parallel=5",
+    "lint-styles": "nx affected --target=stylelint --base=origin/master --parallel=5",
+    "test": "nx affected --target=test --base=origin/master --parallel=5",
+    "tsc": "nx affected --target=tsc --base=origin/master --parallel=5",
     "prettier-format": "prettier --write . && git add --all",
     "prisma-generate": "env-cmd -f .local.env prisma generate",
     "prisma-migrate": "env-cmd -f .local.env prisma migrate dev",
     "prisma-pull": "env-cmd -f .local.env prisma db pull",
     "prisma-push": "env-cmd -f .local.env prisma db push",
     "prisma-seed": "env-cmd -f .local.env prisma db seed",
-    "prisma-studio": "env-cmd -f .local.env prisma studio"
+    "prisma-studio": "env-cmd -f .local.env prisma studio",
+    "prisma-validate": "env-cmd -f .local.env prisma validate"
   },
   "private": true,
   "devDependencies": {
@@ -116,6 +117,7 @@
     "class-validator": "0.14.0",
     "env-cmd": "10.1.0",
     "husky": "8.0.3",
+    "moment": "2.29.4",
     "normalize.css": "8.0.1",
     "prisma": "4.10.1",
     "react": "18.2.0",
