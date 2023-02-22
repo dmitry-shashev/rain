@@ -20,11 +20,12 @@ jobs:
       - run: pnpm install
       - run: pnpm tsc
       - run: pnpm lint
+      - run: pnpm lint-styles
+      - run: pnpm prisma validate
       - run: pnpm test
 
   build:
     runs-on: ubuntu-latest
-    needs: [checks]
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
