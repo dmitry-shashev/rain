@@ -43,14 +43,6 @@ Add in `.stylelintrc.json`
 }
 ```
 
-#### Turn it on in the `web storm` - searching `stylelint`
-
-#### Then we can run it
-
-```bash
-pnpm nx run-many --target=stylelint
-```
-
 #### Add to the pre-commit hook
 
 Add to `package.json`
@@ -76,9 +68,20 @@ Add in `.stylelintrc.json`
 
 ```bash
 "plugins": ["stylelint-prettier"],
+...
+
   "rules": {
     "prettier/prettier": true
   }
 ```
 
+#### Turn it on in the `web storm` - searching `stylelint`
+
 In webstorm in `prettier` as extensions add `scss` and `css`
+
+#### Then we can run it
+
+```bash
+pnpm nx run-many --target=stylelint
+```
+

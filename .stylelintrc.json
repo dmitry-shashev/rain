@@ -7,6 +7,12 @@
       "extends": ["stylelint-config-standard"],
       "customSyntax": "postcss-scss",
       "rules": {
+        "selector-pseudo-class-no-unknown": [
+          true,
+          {
+            "ignorePseudoClasses": ["global"]
+          }
+        ],
         "selector-class-pattern": null,
         "prettier/prettier": true
       }
