@@ -25,16 +25,21 @@
                 "onlyDependOnLibsWithTags": [
                   "libs:store",
                   "libs:core",
-                  "libs:components"
+                  "libs:components",
+                  "libs:models-ui"
                 ]
               },
               {
                 "sourceTag": "libs:store",
-                "onlyDependOnLibsWithTags": ["libs:core", "libs:dto"]
+                "onlyDependOnLibsWithTags": [
+                  "libs:core",
+                  "libs:dto",
+                  "libs:models-ui"
+                ]
               },
               {
                 "sourceTag": "libs:components",
-                "onlyDependOnLibsWithTags": ["libs:core"]
+                "onlyDependOnLibsWithTags": ["libs:core", "libs:models-ui"]
               },
               {
                 "sourceTag": "libs:data-access-db",
@@ -47,6 +52,10 @@
               {
                 "sourceTag": "libs:dto",
                 "onlyDependOnLibsWithTags": []
+              },
+              {
+                "sourceTag": "libs:models-ui",
+                "onlyDependOnLibsWithTags": ["libs:core"]
               }
             ]
           }

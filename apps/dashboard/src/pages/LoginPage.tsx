@@ -1,37 +1,17 @@
 import React from 'react'
 import { Page } from '../interfaces/page'
-import { Button, TextField } from '@mui/material'
+import { LoginForm } from '@rain/components'
+import { LoginModel } from '@rain/models-ui'
 
 const LoginPage: Page = () => {
+  const onSubmit = (data: LoginModel): void => {
+    // eslint-disable-next-line no-alert
+    alert(`Submitted - ${data.email}`)
+  }
+
   return (
     <div>
-      <form action="">
-        <div className="mb10">
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            autoFocus
-            id="email"
-            label="Email"
-            name="email"
-            autoComplete="email"
-          />
-          <TextField
-            required
-            fullWidth
-            margin="normal"
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-        </div>
-        <Button fullWidth type="submit" variant="contained">
-          Sign In
-        </Button>
-      </form>
+      <LoginForm onSubmit={onSubmit} />
     </div>
   )
 }

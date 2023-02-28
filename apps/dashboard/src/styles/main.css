@@ -4,6 +4,7 @@
 :root {
   --font-roboto: 'Roboto', sans-serif;
   --font-color-main: #37474f;
+  --font-color-error: #f00;
   --smooth-opacity: smooth-opacity-keyframes 0.1s;
   --delayed-opacity: delayed-opacity-keyframes 2s;
 }

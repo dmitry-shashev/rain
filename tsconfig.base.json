@@ -24,6 +24,7 @@
       "@rain/core": ["libs/core/src/index.ts"],
       "@rain/data-access-db": ["libs/data-access-db/src/index.ts"],
       "@rain/dto": ["libs/dto/src/index.ts"],
+      "@rain/models-ui": ["libs/models-ui/src/index.ts"],
       "@rain/store": ["libs/store/src/index.ts"]
     }
   },
