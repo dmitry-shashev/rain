@@ -1,6 +1,6 @@
 {
   "name": "rain",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
@@ -122,6 +122,7 @@
     "prisma": "4.10.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "7.43.2",
     "react-redux": "8.0.5",
     "react-router-dom": "6.4.3",
     "reflect-metadata": "^0.1.13",

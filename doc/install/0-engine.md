@@ -128,3 +128,17 @@ pnpm add env-cmd
 pnpm add moment
 ```
 
+#### Add models libraries
+
+> As back models we are using data-access models
+
+```bash
+pnpm nx g @nrwl/js:library --name=models-ui
+```
+
+#### Forms
+
+```bash
+pnpm add react-hook-form
+```
+
