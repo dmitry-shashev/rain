@@ -110,6 +110,57 @@
         },
         "tags": ["users"]
       }
+    },
+    "/api/auth": {
+      "post": {
+        "operationId": "AuthController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login the user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResultDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["auth"],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/auth/some-protected": {
+      "get": {
+        "operationId": "AuthController_someProtected",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Some protected"
+          }
+        },
+        "tags": ["auth"],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
     }
   },
   "info": {
@@ -126,6 +177,16 @@
   ],
   "servers": [],
   "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http",
+        "name": "JWT",
+        "description": "Enter JWT token",
+        "in": "header"
+      }
+    },
     "schemas": {
       "UserDto": {
         "type": "object",
@@ -180,6 +241,24 @@
           }
         },
         "required": ["name"]
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "object",
+            "example": "tt@tt.tt"
+          },
+          "password": {
+            "type": "object",
+            "example": "123456"
+          }
+        },
+        "required": ["email", "password"]
+      },
+      "LoginResultDto": {
+        "type": "object",
+        "properties": {}
       }
     }
   }

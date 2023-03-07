@@ -10,6 +10,8 @@
 
 #### Backend
     
+* add user check during the login process
+* Swagger api multi version
 * Errors handling
 * API Tests
 
