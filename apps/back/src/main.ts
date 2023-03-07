@@ -27,13 +27,25 @@ async function bootstrap(): Promise<void> {
     .setDescription('For the backend side if the app')
     .setVersion('1.0')
     .addTag('users')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'JWT',
+      description: 'Enter JWT token',
+      in: 'header',
+    })
     .build()
   const document = SwaggerModule.createDocument(app, config)
   fs.writeFileSync(
     './apps/back/swagger.json',
     JSON.stringify(document, null, 2)
   )
-  SwaggerModule.setup('api', app, document)
+  SwaggerModule.setup('api', app, document, {
+    swaggerOptions: {
+      persistAuthorization: true,
+    },
+  })
   // -
 
   // add the global validation pipe
