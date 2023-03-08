@@ -1,3 +1,4 @@
+import * as bcrypt from 'bcrypt'
 import { PrismaClient, User } from './auto-generated-client'
 
 const prisma = new PrismaClient()
@@ -8,11 +9,13 @@ async function seedUsers(): Promise<void> {
       id: 1,
       name: 'Tester',
       email: 'tt@tt.tt',
+      password: bcrypt.hashSync('a123123', 10),
     },
     {
       id: 2,
       name: 'Tom',
       email: 'tom@tt.tt',
+      password: bcrypt.hashSync('123456', 10),
     },
   ]
 

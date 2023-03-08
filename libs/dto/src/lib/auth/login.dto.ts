@@ -9,7 +9,7 @@ export class LoginDto {
   email = ''
 
   @ApiProperty({
-    example: '123456',
+    example: 'a123123',
   })
   @IsNotEmpty()
   password = ''

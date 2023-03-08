@@ -13,4 +13,10 @@ export class CreateUserDto {
   })
   @IsEmail()
   email = ''
+
+  @ApiProperty({
+    example: 'tt2@tt.tt',
+  })
+  @IsNotEmpty()
+  password = ''
 }

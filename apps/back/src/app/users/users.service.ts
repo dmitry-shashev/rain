@@ -14,6 +14,14 @@ export class UsersService {
     })
   }
 
+  findOneByEmail(email: string): Promise<User> {
+    return this.prismaService.user.findUniqueOrThrow({
+      where: {
+        email,
+      },
+    })
+  }
+
   findAll(): Promise<Array<User>> {
     return this.prismaService.user.findMany()
   }
@@ -23,6 +31,7 @@ export class UsersService {
       data: {
         email: createUserDto.email,
         name: createUserDto.name,
+        password: createUserDto.password,
       },
     })
   }
