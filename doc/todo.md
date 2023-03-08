@@ -1,7 +1,5 @@
 #### Frontend
 
-* Login Form
-* Hook forms
 * Storybook
 * Toasts
 * Modals
@@ -10,7 +8,7 @@
 
 #### Backend
     
-* add user check during the login process
+* Add refresh token
 * Swagger api multi version
 * Errors handling
 * API Tests

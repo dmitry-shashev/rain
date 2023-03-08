@@ -111,9 +111,9 @@
         "tags": ["users"]
       }
     },
-    "/api/auth": {
+    "/api/auth/login": {
       "post": {
-        "operationId": "AuthController_create",
+        "operationId": "AuthController_login",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -228,9 +228,13 @@
           "email": {
             "type": "object",
             "example": "tt2@tt.tt"
+          },
+          "password": {
+            "type": "object",
+            "example": "tt2@tt.tt"
           }
         },
-        "required": ["name", "email"]
+        "required": ["name", "email", "password"]
       },
       "UpdateUserDto": {
         "type": "object",
@@ -251,7 +255,7 @@
           },
           "password": {
             "type": "object",
-            "example": "123456"
+            "example": "a123123"
           }
         },
         "required": ["email", "password"]

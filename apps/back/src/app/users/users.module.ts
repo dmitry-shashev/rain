@@ -7,5 +7,6 @@ import { PrismaModule } from '@rain/data-access-db'
   imports: [PrismaModule],
   controllers: [UsersController],
   providers: [UsersService],
+  exports: [UsersService],
 })
 export class UsersModule {}

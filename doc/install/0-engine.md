@@ -142,3 +142,10 @@ pnpm nx g @nrwl/js:library --name=models-ui
 pnpm add react-hook-form
 ```
 
+#### For password hashing
+
+```bash
+pnpm add bcrypt
+pnpm add -D @types/bcrypt
+```
+

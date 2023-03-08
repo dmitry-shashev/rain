@@ -1,18 +1,30 @@
-import { Injectable } from '@nestjs/common'
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { LoginDto, LoginResultDto } from '@rain/dto'
 import { JwtService } from '@nestjs/jwt'
+import { UsersService } from '../users/users.service'
+import * as bcrypt from 'bcrypt'
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly jwtService: JwtService) {}
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly userService: UsersService
+  ) {}
 
-  login(loginDto: LoginDto): LoginResultDto {
-    // TODO: find the user using users service
-    //       check the password and add id as a sub
+  async login(loginDto: LoginDto): Promise<LoginResultDto> {
+    const user = await this.userService.findOneByEmail(loginDto.email)
+
+    if (!user) {
+      throw new HttpException('User is not found', HttpStatus.NOT_FOUND)
+    }
+
+    if (!bcrypt.compareSync(String(loginDto.password), String(user.password))) {
+      throw new HttpException('Password is not correct', HttpStatus.FORBIDDEN)
+    }
+
     const payload = {
-      username: loginDto.email,
-      // id
-      sub: '',
+      username: user.email,
+      sub: user.id,
     }
     return {
       access_token: this.jwtService.sign(payload, {
