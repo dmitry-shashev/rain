@@ -8,7 +8,6 @@
 
 #### Backend
     
-* Add refresh token
 * Swagger api multi version
 * Errors handling
 * API Tests

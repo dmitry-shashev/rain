@@ -41,7 +41,7 @@ async function bootstrap(): Promise<void> {
     './apps/back/swagger.json',
     JSON.stringify(document, null, 2)
   )
-  SwaggerModule.setup('api', app, document, {
+  SwaggerModule.setup(globalPrefix, app, document, {
     swaggerOptions: {
       persistAuthorization: true,
     },
