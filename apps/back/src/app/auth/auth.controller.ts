@@ -20,11 +20,11 @@ export class AuthController {
     return this.authService.login(loginDto)
   }
 
-  @UseGuards(JwtAuthGuard)
   @ApiResponse({
     status: 200,
     description: 'Some protected',
   })
+  @UseGuards(JwtAuthGuard)
   @Get('some-protected')
   someProtected(): string {
     return 'Some protected content'
