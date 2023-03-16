@@ -83,6 +83,14 @@
             "default": "generic"
           }
         ],
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "types": {
+              "{}": false
+            }
+          }
+        ],
         "quotes": [
           "error",
           "single",
@@ -119,7 +127,12 @@
         "no-debugger": "error",
         "no-eval": "error",
         "no-extend-native": "error",
-        "no-inline-comments": "error",
+        "no-inline-comments": [
+          "error",
+          {
+            "ignorePattern": " status "
+          }
+        ],
         "no-bitwise": "error",
         "no-proto": "error",
         "no-param-reassign": "error"

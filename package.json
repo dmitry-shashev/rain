@@ -1,6 +1,6 @@
 {
   "name": "rain",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
@@ -14,6 +14,7 @@
     "test": "nx affected --target=test --base=origin/master --parallel=5",
     "tsc": "nx affected --target=tsc --base=origin/master --parallel=5",
     "prettier-format": "prettier --write . && git add --all",
+    "generate-dto-v1": "rtk-query-codegen-openapi ./libs/store/src/lib/api/auto-generated/openapi-config-v1.ts && eslint --fix ./libs/store/src/lib/api/auto-generated/auto-generated.api.ts && prettier --write ./libs/store/src/lib/api/auto-generated/auto-generated.api.ts",
     "prisma-generate": "env-cmd -f .local.env prisma generate",
     "prisma-migrate": "env-cmd -f .local.env prisma migrate dev",
     "prisma-pull": "env-cmd -f .local.env prisma db pull",
@@ -115,6 +116,7 @@
     "@nestjs/swagger": "6.2.1",
     "@prisma/client": "4.10.1",
     "@reduxjs/toolkit": "1.9.2",
+    "@rtk-query/codegen-openapi": "1.0.0",
     "@swc/helpers": "~0.4.11",
     "axios": "^1.0.0",
     "bcrypt": "5.1.0",
