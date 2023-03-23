@@ -57,3 +57,8 @@ or
     example: 'tt@tt.tt'
   })
 ```
+
+It is important to write `type` - because lint removes `string` if we
+write like `example: string = ''` and in this case swagger can not determine
+the correct type and start using `object`, so it should be `type: 'string'`,
+`type: 'number'`

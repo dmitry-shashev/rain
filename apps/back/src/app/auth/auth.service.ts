@@ -14,10 +14,6 @@ export class AuthService {
   async login(loginDto: LoginDto): Promise<LoginResultDto> {
     const user = await this.userService.findOneByEmail(loginDto.email)
 
-    if (!user) {
-      throw new HttpException('User is not found', HttpStatus.NOT_FOUND)
-    }
-
     if (!bcrypt.compareSync(String(loginDto.password), String(user.password))) {
       throw new HttpException('Password is not correct', HttpStatus.FORBIDDEN)
     }

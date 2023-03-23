@@ -2,16 +2,22 @@ import React from 'react'
 import { Page } from '../interfaces/page'
 import { LoginForm } from '@rain/components'
 import { LoginModel } from '@rain/models-ui'
+import { useAuthControllerLoginMutation } from '@rain/store'
 
 const LoginPage: Page = () => {
+  const [login, { isLoading }] = useAuthControllerLoginMutation()
   const onSubmit = (data: LoginModel): void => {
-    // eslint-disable-next-line no-alert
-    alert(`Submitted - ${data.email}`)
+    login({
+      loginDto: {
+        email: data.email,
+        password: data.password,
+      },
+    })
   }
 
   return (
     <div>
-      <LoginForm onSubmit={onSubmit} />
+      <LoginForm onSubmit={onSubmit} loading={isLoading} />
     </div>
   )
 }

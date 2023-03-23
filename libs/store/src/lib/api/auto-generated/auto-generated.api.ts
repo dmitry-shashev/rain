@@ -91,25 +91,25 @@ export type AuthControllerLoginRequestDto = {
 export type AuthControllerSomeProtectedResponseDto = unknown
 export type AuthControllerSomeProtectedRequestDto = void
 export type UserDto = {
-  id: object
-  name: object
-  email: object
+  id: number
+  name: string
+  email: string
 }
 export type UsersListDto = {
   users: Array<UserDto>
 }
 export type CreateUserDto = {
-  name: object
-  email: object
-  password: object
+  name: string
+  email: string
+  password: string
 }
 export type UpdateUserDto = {
-  name: object
+  name: string
 }
 export type LoginResultDto = {}
 export type LoginDto = {
-  email: object
-  password: object
+  email: string
+  password: string
 }
 export const {
   useUsersControllerFindAllQuery,

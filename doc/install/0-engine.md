@@ -149,3 +149,9 @@ pnpm add bcrypt
 pnpm add -D @types/bcrypt
 ```
 
+#### Add express
+
+```bash
+pnpm add express
+pnpm add -D @types/express
+```
