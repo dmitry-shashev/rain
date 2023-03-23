@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { PrismaService, User } from '@rain/data-access-db'
 import { CreateUserDto, UpdateUserDto } from '@rain/dto'
 
@@ -6,20 +6,28 @@ import { CreateUserDto, UpdateUserDto } from '@rain/dto'
 export class UsersService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  findOne(id: number): Promise<User> {
-    return this.prismaService.user.findUniqueOrThrow({
+  async findOne(id: number): Promise<User> {
+    const user = await this.prismaService.user.findUnique({
       where: {
         id,
       },
     })
+    if (!user) {
+      throw new HttpException('User is not found', HttpStatus.NOT_FOUND)
+    }
+    return user
   }
 
-  findOneByEmail(email: string): Promise<User> {
-    return this.prismaService.user.findUniqueOrThrow({
+  async findOneByEmail(email: string): Promise<User> {
+    const user = await this.prismaService.user.findUnique({
       where: {
         email,
       },
     })
+    if (!user) {
+      throw new HttpException('User is not found', HttpStatus.NOT_FOUND)
+    }
+    return user
   }
 
   findAll(): Promise<Array<User>> {

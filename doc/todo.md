@@ -1,5 +1,7 @@
 #### Frontend
 
+* add server errors - login page
+* add user session hook
 * Storybook
 * Toasts
 * Modals

@@ -192,15 +192,15 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "object",
+            "type": "number",
             "example": "2"
           },
           "name": {
-            "type": "object",
+            "type": "string",
             "example": "Tester"
           },
           "email": {
-            "type": "object",
+            "type": "string",
             "example": "tt@tt.tt"
           }
         },
@@ -222,15 +222,15 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "object",
+            "type": "string",
             "example": "Tester2"
           },
           "email": {
-            "type": "object",
+            "type": "string",
             "example": "tt2@tt.tt"
           },
           "password": {
-            "type": "object",
+            "type": "string",
             "example": "tt2@tt.tt"
           }
         },
@@ -240,7 +240,7 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "object",
+            "type": "string",
             "example": "Mike"
           }
         },
@@ -250,11 +250,11 @@
         "type": "object",
         "properties": {
           "email": {
-            "type": "object",
+            "type": "string",
             "example": "tt@tt.tt"
           },
           "password": {
-            "type": "object",
+            "type": "string",
             "example": "a123123"
           }
         },

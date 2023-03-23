@@ -3,6 +3,7 @@ import { IsNotEmpty } from 'class-validator'
 
 export class UpdateUserDto {
   @ApiProperty({
+    type: 'string',
     example: 'Mike',
   })
   @IsNotEmpty()
