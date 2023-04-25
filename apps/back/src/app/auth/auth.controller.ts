@@ -1,23 +1,58 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Req,
+  Res,
+  UseGuards,
+} from '@nestjs/common'
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { JwtAuthGuard } from '../guards/jwt-auth-guard'
-import { LoginDto, LoginResultDto } from '@rain/dto'
+import { LoginDto, UserDto } from '@rain/dto'
 import { AuthService } from './auth.service'
+import { Response, Request } from 'express'
+import { UsersService } from '../users/users.service'
+import { User } from '@rain/data-access-db'
+import { UsersAdapter } from '../users/users.adapter'
 
 @ApiTags('auth')
 @ApiBearerAuth()
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly userService: UsersService
+  ) {}
 
   @ApiResponse({
     status: 200,
     description: 'Login the user',
-    type: LoginResultDto,
   })
   @Post('login')
-  async login(@Body() loginDto: LoginDto): Promise<LoginResultDto> {
-    return this.authService.login(loginDto)
+  async login(
+    @Body() loginDto: LoginDto,
+    @Res({ passthrough: true }) response: Response
+  ): Promise<void> {
+    const token = await this.authService.login(loginDto)
+    response.cookie('Authorization', token, {
+      httpOnly: true,
+      maxAge: Number(process.env.JWT_EXPIRES_IN),
+    })
+  }
+
+  @ApiResponse({
+    status: 200,
+    description: 'Get current user data',
+    type: UserDto,
+  })
+  @UseGuards(JwtAuthGuard)
+  @Get('current-user')
+  async getCurrentUser(@Req() request: Request): Promise<UserDto> {
+    // we fill this field in 'jwt-strategy' - validate
+    const tokenUser = request.user as User
+    const currentUser = await this.userService.findOne(tokenUser.id)
+    return UsersAdapter.fromUserToDto(currentUser)
   }
 
   @ApiResponse({

@@ -127,11 +127,28 @@
         },
         "responses": {
           "200": {
-            "description": "Login the user",
+            "description": "Login the user"
+          }
+        },
+        "tags": ["auth"],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/auth/current-user": {
+      "get": {
+        "operationId": "AuthController_getCurrentUser",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Get current user data",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LoginResultDto"
+                  "$ref": "#/components/schemas/UserDto"
                 }
               }
             }
@@ -259,10 +276,6 @@
           }
         },
         "required": ["email", "password"]
-      },
-      "LoginResultDto": {
-        "type": "object",
-        "properties": {}
       }
     }
   }

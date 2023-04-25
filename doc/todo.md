@@ -1,5 +1,6 @@
 #### Frontend
 
+* logout
 * add server errors - login page
 * add user session hook
 * Storybook

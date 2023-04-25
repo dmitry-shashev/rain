@@ -1,9 +1,9 @@
 import React from 'react'
 import { Page } from '../interfaces/page'
-import { useGetUsersQuery } from '@rain/store'
+import { useUsersControllerFindAllQuery } from '@rain/store'
 
 const HomePage: Page = () => {
-  const { data, isLoading } = useGetUsersQuery()
+  const { data, isLoading } = useUsersControllerFindAllQuery()
 
   if (isLoading) {
     return <div>Loading ...</div>
