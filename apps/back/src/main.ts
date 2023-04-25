@@ -5,6 +5,7 @@ import { PrismaService } from '@rain/data-access-db'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import fs from 'fs'
+import cookieParser from 'cookie-parser'
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule)
@@ -15,6 +16,9 @@ async function bootstrap(): Promise<void> {
   })
   const globalPrefix = 'api'
   app.setGlobalPrefix(globalPrefix)
+
+  // init cookies
+  app.use(cookieParser())
 
   // init prisma
   const prismaService = app.get(PrismaService)

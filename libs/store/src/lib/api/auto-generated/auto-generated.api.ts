@@ -53,6 +53,13 @@ const injectedRtkApi = api
         }),
         invalidatesTags: ['auth'],
       }),
+      authControllerGetCurrentUser: build.query<
+        AuthControllerGetCurrentUserResponseDto,
+        AuthControllerGetCurrentUserRequestDto
+      >({
+        query: () => ({ url: `/api/auth/current-user` }),
+        providesTags: ['auth'],
+      }),
       authControllerSomeProtected: build.query<
         AuthControllerSomeProtectedResponseDto,
         AuthControllerSomeProtectedRequestDto
@@ -83,11 +90,13 @@ export type UsersControllerUpdateRequestDto = {
   id: number
   updateUserDto: UpdateUserDto
 }
-export type AuthControllerLoginResponseDto =
-  /** status 200 Login the user */ LoginResultDto
+export type AuthControllerLoginResponseDto = unknown
 export type AuthControllerLoginRequestDto = {
   loginDto: LoginDto
 }
+export type AuthControllerGetCurrentUserResponseDto =
+  /** status 200 Get current user data */ UserDto
+export type AuthControllerGetCurrentUserRequestDto = void
 export type AuthControllerSomeProtectedResponseDto = unknown
 export type AuthControllerSomeProtectedRequestDto = void
 export type UserDto = {
@@ -106,7 +115,6 @@ export type CreateUserDto = {
 export type UpdateUserDto = {
   name: string
 }
-export type LoginResultDto = {}
 export type LoginDto = {
   email: string
   password: string
@@ -119,6 +127,8 @@ export const {
   useLazyUsersControllerFindOneQuery,
   useUsersControllerUpdateMutation,
   useAuthControllerLoginMutation,
+  useAuthControllerGetCurrentUserQuery,
+  useLazyAuthControllerGetCurrentUserQuery,
   useAuthControllerSomeProtectedQuery,
   useLazyAuthControllerSomeProtectedQuery,
 } = injectedRtkApi

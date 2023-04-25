@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
-import { LoginDto, LoginResultDto } from '@rain/dto'
+import { LoginDto } from '@rain/dto'
 import { JwtService } from '@nestjs/jwt'
 import { UsersService } from '../users/users.service'
 import * as bcrypt from 'bcrypt'
@@ -11,7 +11,7 @@ export class AuthService {
     private readonly userService: UsersService
   ) {}
 
-  async login(loginDto: LoginDto): Promise<LoginResultDto> {
+  async login(loginDto: LoginDto): Promise<string> {
     const user = await this.userService.findOneByEmail(loginDto.email)
 
     if (!bcrypt.compareSync(String(loginDto.password), String(user.password))) {
@@ -22,11 +22,10 @@ export class AuthService {
       username: user.email,
       sub: user.id,
     }
-    return {
-      access_token: this.jwtService.sign(payload, {
-        secret: process.env.JWT_SECRET,
-        expiresIn: process.env.JWT_EXPIRES_IN,
-      }),
-    }
+
+    return this.jwtService.sign(payload, {
+      secret: process.env.JWT_SECRET,
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    })
   }
 }
