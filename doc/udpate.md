@@ -40,3 +40,10 @@ with
 ```bash
       "executor": "nx:run-commands",
 ```
+
+Re-install nx-stylelint
+
+```bash
+pnpm remove nx-stylelint
+pnpm add -D nx-stylelint
+```
