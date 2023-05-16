@@ -30,8 +30,8 @@ Remove `.prettierrc` and add into `package.json`
 #### Add react application
 
 ```bash
-pnpm add -D @nrwl/react
-pnpm nx g @nrwl/react:application dashboard --routing --compiler swc
+pnpm add -D @nx/react
+pnpm nx g @nx/react:application dashboard --routing --compiler swc
 ```
 
 And then select `scss` and `vite`
@@ -39,8 +39,8 @@ And then select `scss` and `vite`
 #### Add nest application
 
 ```bash
-pnpm add -D @nrwl/nest
-pnpm nx g @nrwl/nest:app back
+pnpm add -D @nx/nest
+pnpm nx g @nx/nest:app back
 ```
 
 #### Add to `tsconfig.base.json`
@@ -81,7 +81,7 @@ And then for each project - `project.json`
 
 ```bash
     "tsc": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "commands": [
           {
@@ -107,7 +107,7 @@ pnpm nx g @nrwl/js:library --name=dto
 #### Add components library
 
 ```bash
-pnpm nx g @nrwl/react:library components --compiler swc --bundler vite --unitTestRunner jest --buildable
+pnpm nx g @nx/react:library components --compiler swc --bundler vite --unitTestRunner jest --buildable
 ```
 
 #### Add css reset

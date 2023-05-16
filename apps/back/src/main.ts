@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app/app.module'
 import { PrismaService } from '@rain/data-access-db'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import fs from 'fs'
 import cookieParser from 'cookie-parser'
 
