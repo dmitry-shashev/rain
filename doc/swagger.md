@@ -7,7 +7,7 @@ pnpm add @nestjs/swagger
 #### Add init in the `main.ts`
 
 ```bash
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import fs from 'fs'
 
 ...
