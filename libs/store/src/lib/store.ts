@@ -8,6 +8,13 @@ export const errorsHandler: Middleware = () => (next) => (action) => {
     window.location.href = '/auth/login'
     return
   }
+
+  if (403 == action?.payload?.status) {
+    // eslint-disable-next-line no-alert
+    alert('Permission denied')
+    return next(action)
+  }
+
   return next(action)
 }
 
