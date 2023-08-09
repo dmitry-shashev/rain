@@ -138,6 +138,23 @@
         ]
       }
     },
+    "/api/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Logout"
+          }
+        },
+        "tags": ["auth"],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
     "/api/auth/current-user": {
       "get": {
         "operationId": "AuthController_getCurrentUser",

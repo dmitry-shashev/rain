@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  HttpStatus,
   Post,
   Req,
   Res,
@@ -26,7 +27,7 @@ export class AuthController {
   ) {}
 
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Login the user',
   })
   @Post('login')
@@ -42,7 +43,18 @@ export class AuthController {
   }
 
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
+    description: 'Logout',
+  })
+  @Post('logout')
+  logout(@Res({ passthrough: true }) response: Response): void {
+    response.clearCookie('Authorization', {
+      httpOnly: true,
+    })
+  }
+
+  @ApiResponse({
+    status: HttpStatus.OK,
     description: 'Get current user data',
     type: UserDto,
   })
@@ -56,7 +68,7 @@ export class AuthController {
   }
 
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Some protected',
   })
   @UseGuards(JwtAuthGuard)
