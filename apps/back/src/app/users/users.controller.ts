@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  HttpStatus,
   Param,
   ParseIntPipe,
   Patch,
@@ -21,7 +22,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Find all users',
     type: UsersListDto,
   })
@@ -34,7 +35,7 @@ export class UsersController {
   }
 
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Find a specific user',
     type: UserDto,
   })
@@ -56,7 +57,7 @@ export class UsersController {
   }
 
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Update user',
     type: UserDto,
   })
