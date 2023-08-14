@@ -53,6 +53,16 @@ const injectedRtkApi = api
         }),
         invalidatesTags: ['auth'],
       }),
+      authControllerLogout: build.mutation<
+        AuthControllerLogoutResponseDto,
+        AuthControllerLogoutRequestDto
+      >({
+        query: () => ({
+          url: `/api/auth/logout`,
+          method: 'POST',
+        }),
+        invalidatesTags: ['auth'],
+      }),
       authControllerGetCurrentUser: build.query<
         AuthControllerGetCurrentUserResponseDto,
         AuthControllerGetCurrentUserRequestDto
@@ -94,6 +104,8 @@ export type AuthControllerLoginResponseDto = unknown
 export type AuthControllerLoginRequestDto = {
   loginDto: LoginDto
 }
+export type AuthControllerLogoutResponseDto = unknown
+export type AuthControllerLogoutRequestDto = void
 export type AuthControllerGetCurrentUserResponseDto =
   /** status 200 Get current user data */ UserDto
 export type AuthControllerGetCurrentUserRequestDto = void
@@ -127,6 +139,7 @@ export const {
   useLazyUsersControllerFindOneQuery,
   useUsersControllerUpdateMutation,
   useAuthControllerLoginMutation,
+  useAuthControllerLogoutMutation,
   useAuthControllerGetCurrentUserQuery,
   useLazyAuthControllerGetCurrentUserQuery,
   useAuthControllerSomeProtectedQuery,
