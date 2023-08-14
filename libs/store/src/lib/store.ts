@@ -4,7 +4,7 @@ import userReducer from '../lib/reducers/userSlice'
 
 export const errorsHandler: Middleware = () => (next) => (action) => {
   // connection error
-  if ('FETCH_ERROR' === action.payload.status) {
+  if ('FETCH_ERROR' === action.payload?.status) {
     // eslint-disable-next-line no-console
     console.error('Network Error')
     return next(action)
