@@ -47,6 +47,9 @@ abstract class BaseDataConstant<TClass, TDataKind extends object> {
     Object.assign(obj, {
       [CONSTANT_VALUE_TYPE]: true,
     })
+    // the main idea - if we do not specify "readonly" on the fields
+    // and then use the construction like "const p: SomeData = Some.ONE"
+    // we do implicit cast from readonly - "freeze" will trigger an error
     return Object.freeze(obj)
   }
 

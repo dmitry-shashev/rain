@@ -22,7 +22,7 @@ const LoginPage: Page = () => {
   // assigning readonly value to a regular
   // in order to check error on the next line (uncomment)
   const p: ColorKindData = ColorKind.BLUE
-  // p.label = '123' // triggers an error
+  // p.label = '123'
   // @#$
   // eslint-disable-next-line no-console
   console.log(`pre defined: "${p.label}"`)
@@ -42,6 +42,8 @@ const LoginPage: Page = () => {
   // @#$
   // eslint-disable-next-line no-console
   console.log(`correct variant (value): ${correctVariant.value}`)
+
+  // ColorKind.BLUE = ColorKind.RED
 
   //-----------------------------------------------------------------
 
