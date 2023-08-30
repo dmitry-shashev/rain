@@ -37,5 +37,5 @@ class ColorKind extends BaseDataConstant<ColorKind, ColorKindData> {
   }
 }
 
-const obj = Object.freeze(new ColorKind())
+const obj: Readonly<ColorKind> = new ColorKind()
 export { obj as ColorKind }
