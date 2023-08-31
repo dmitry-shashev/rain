@@ -1,12 +1,12 @@
-import BaseDataConstant from './base-data-constant'
+import StructEnum from './struct-enum'
 
-export interface ColorKindData {
+export interface ColorValue {
   label: string
   value: string
 }
 
-class ColorKind extends BaseDataConstant<ColorKind, ColorKindData> {
-  UNDEFINED = this.buildValue({
+class Color extends StructEnum<Color, ColorValue> {
+  EMPTY = this.buildValue({
     label: '',
     value: '',
   })
@@ -27,15 +27,15 @@ class ColorKind extends BaseDataConstant<ColorKind, ColorKindData> {
   })
 
   // example how we can get own sets
-  getOnlyNeeded(): ReadonlyArray<ColorKindData> {
+  getOnlyNeeded(): ReadonlyArray<ColorValue> {
     return [this.GREEN, this.BLUE]
   }
 
   // example how we can get a value by a field
-  getByLabel(value: ColorKindData['label']): ColorKindData {
+  getByLabel(value: ColorValue['label']): ColorValue {
     return this.getByFieldValue('label', value)
   }
 }
 
-const obj: Readonly<ColorKind> = new ColorKind()
-export { obj as ColorKind }
+const obj: Readonly<Color> = new Color()
+export { obj as Color }
