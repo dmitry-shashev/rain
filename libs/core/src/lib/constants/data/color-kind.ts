@@ -6,33 +6,33 @@ export interface ColorKindData {
 }
 
 class ColorKind extends BaseDataConstant<ColorKind, ColorKindData> {
-  public UNDEFINED = this.buildValue({
+  UNDEFINED = this.buildValue({
     label: '',
-    value: '-1',
+    value: '',
   })
 
-  public RED = this.buildValue({
+  RED = this.buildValue({
     label: 'Red',
     value: 'red',
   })
 
-  public GREEN = this.buildValue({
+  GREEN = this.buildValue({
     label: 'Green',
     value: 'green',
   })
 
-  public BLUE = this.buildValue({
+  BLUE = this.buildValue({
     label: 'Blue',
     value: 'blue',
   })
 
   // example how we can get own sets
-  public getOnlyNeeded(): ReadonlyArray<ColorKindData> {
+  getOnlyNeeded(): ReadonlyArray<ColorKindData> {
     return [this.GREEN, this.BLUE]
   }
 
   // example how we can get a value by a field
-  public getByLabel(value: ColorKindData['label']): ColorKindData {
+  getByLabel(value: ColorKindData['label']): ColorKindData {
     return this.getByFieldValue('label', value)
   }
 }
