@@ -21,10 +21,10 @@ Remove `.prettierrc` and add into `package.json`
     "nonGlobalStepDefinitions": true
   },
   "engines": {
-    "node": ">=18.12.1",
-    "pnpm": ">=7.27.0"
+    "node": ">=20.9.0",
+    "pnpm": "8.10.2"
   },
-  "packageManager": "pnpm@7.27.0"
+  "packageManager": "pnpm@8.10.2"
 ```
 
 #### Add react application
